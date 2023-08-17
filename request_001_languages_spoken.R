@@ -67,3 +67,42 @@ library(readr)
 
 readr::write_csv(x = lang21_2, 
                  file = "languages_spoken_nc_counties_2021.csv")
+
+#cw.coc <- read_csv("https://raw.githubusercontent.com/timbender-ncceh/PIT_HIC/main/crosswalks/county_district_region_crosswalk.csv")
+cw.coc <- read_csv("https://raw.githubusercontent.com/timbender-ncceh/PIT_HIC/main/crosswalks/coc_county_crosswalk.csv")
+
+
+lang21_3 <- as.data.table(lang21_2) %>%
+  melt(., 
+       id.vars = c("year", "county"), 
+       value.name = "estimate", 
+       variable.name = "language") %>%
+  as.data.frame() %>%
+  as_tibble() %>%
+  left_join(., cw.coc) %>%
+  #.[.$coc_short == 503,] %>%
+  .[.$estimate > 0,] %>%
+  group_by(language, 
+           bos_county = coc_short == 503) %>%
+  summarise(t_hh = sum(estimate), 
+            pct_hh = NA,
+            n_bos_counties = n_distinct(county)) %>%
+  .[order(.$bos_county,.$t_hh, decreasing = T),] %>%
+  ungroup() %>%
+  group_by(bos_county) %>%
+  mutate(., 
+         pct_hh = round(t_hh / sum(t_hh),3), 
+         pct_bos_counties = round(n_bos_counties / max(n_bos_counties),3))
+
+colnames(lang21_3) <- c("language_spoken_at_home", 
+                        "CoC", 
+                        "total_CoC_households", 
+                        "percent_of_CoC_households", 
+                        "number_of_CoC_counties_language_spoken_in",  
+                        "percent_of_CoC_counties_language_spoken_in")
+lang21_3$CoC <- ifelse(T, "NC-503", "All Others")
+
+lang21_3
+
+write_csv(lang21_3, 
+          "summary_languages_spoken_nc_counties_2021.csv")
