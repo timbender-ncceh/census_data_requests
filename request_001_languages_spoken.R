@@ -100,9 +100,21 @@ colnames(lang21_3) <- c("language_spoken_at_home",
                         "percent_of_CoC_households", 
                         "number_of_CoC_counties_language_spoken_in",  
                         "percent_of_CoC_counties_language_spoken_in")
-lang21_3$CoC <- ifelse(T, "NC-503", "All Others")
+lang21_3$CoC <- ifelse(lang21_3$CoC == T, "NC-503", "All Others")
 
 lang21_3
 
 write_csv(lang21_3, 
           "summary_languages_spoken_nc_counties_2021.csv")
+
+library(ggplot2)
+ggplot() + 
+  geom_col(data = lang21_3, 
+             aes(y = percent_of_CoC_households, 
+                 x = CoC, 
+                 fill = language_spoken_at_home), 
+           position = "stack")+
+  scale_y_continuous(labels=scales::percent, 
+                     breaks = seq(0,1,by=0.1))
+
+                     
