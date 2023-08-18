@@ -12,16 +12,16 @@ arabic,NC-503,6177,0.001,51,0.646
 tagalog_incl_filipino,NC-503,6156,0.001,58,0.734
 vietnamese,NC-503,5376,0.001,52,0.658
 korean,NC-503,3747,0.001,50,0.633
-speak_only_english,NC-503,4215665,0.855,21,1
-spanish,NC-503,400047,0.081,21,1
-other_indo_european_languages,NC-503,77602,0.016,21,1
-other_asian_and_pacific_island_languages,NC-503,53724,0.011,21,1
-chinese_incl_mandarin_cantonese,NC-503,31227,0.006,19,0.905
-other_and_unspecified_languages,NC-503,30791,0.006,16,0.762
-french_haitian_or_cajun,NC-503,26337,0.005,19,0.905
-arabic,NC-503,23377,0.005,16,0.762
-vietnamese,NC-503,19121,0.004,15,0.714
-russian_polish_or_other_slavic_languages,NC-503,18125,0.004,20,0.952
-german_or_other_west_germanic_languages,NC-503,14705,0.003,20,0.952
-korean,NC-503,12580,0.003,18,0.857
-tagalog_incl_filipino,NC-503,9153,0.002,18,0.857
+speak_only_english,All Others,4215665,0.855,21,1
+spanish,All Others,400047,0.081,21,1
+other_indo_european_languages,All Others,77602,0.016,21,1
+other_asian_and_pacific_island_languages,All Others,53724,0.011,21,1
+chinese_incl_mandarin_cantonese,All Others,31227,0.006,19,0.905
+other_and_unspecified_languages,All Others,30791,0.006,16,0.762
+french_haitian_or_cajun,All Others,26337,0.005,19,0.905
+arabic,All Others,23377,0.005,16,0.762
+vietnamese,All Others,19121,0.004,15,0.714
+russian_polish_or_other_slavic_languages,All Others,18125,0.004,20,0.952
+german_or_other_west_germanic_languages,All Others,14705,0.003,20,0.952
+korean,All Others,12580,0.003,18,0.857
+tagalog_incl_filipino,All Others,9153,0.002,18,0.857
