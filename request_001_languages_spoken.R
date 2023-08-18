@@ -115,6 +115,8 @@ ggplot() +
                  fill = language_spoken_at_home), 
            position = "stack")+
   scale_y_continuous(labels=scales::percent, 
-                     breaks = seq(0,1,by=0.1))
+                     breaks = seq(0,1,by=0.1))+
+  labs(title = "Breakdown of Languages Spoken in BoS and non-BoS CoCs in 2021", 
+       subtitle = Sys.Date())
 
                      
